@@ -1,0 +1,41 @@
+{% extends 'masterPage.html' %}
+{% block title %}
+Forgot Password
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+         <div class="col-sm-12 h1 text-center">
+            <span>Forgotten Password</span>
+        </div>
+        <div class="col-sm-offset-3 col-sm-6">
+            <form method="post">
+                {% csrf_token %}
+                {% if otp %}
+                <div class="form-group">
+                    <input type="text" class="form-control" name="text" placeholder="OTP">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="n_pass" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="c_pass" placeholder="Confirm Password">
+                </div>
+                <input type="submit" value="Update Password" class="btn btn-primary btn-block">
+               {% else %}
+                <div class="form-group">
+                    <input type="text" class="form-control" name="text" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <input type="hidden" name="n_pass">
+                </div>
+                <div class="form-group">
+                    <input type="hidden" name="c_pass">
+                </div>
+                <input type="submit" value="Send OTP" class="btn btn-primary btn-block">
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

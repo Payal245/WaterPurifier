@@ -1,0 +1,40 @@
+{% extends 'admin-masterPage.html' %}
+
+{% block title %}
+Update Models
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 h1 text-center">
+            <span>Update Models</span>
+        </div>
+        <div class="col-sm-12">
+            <table class="table table-striped">
+                <tr>
+                    <th>Brands</th>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Price</th>
+                    <th>Modify</th>
+                </tr>
+                {% if data %}
+                {% for name in data %}
+                <tr>
+                    <td>{{ name.brand_id }}</td>
+                    <td>{{ name.name}}</td>
+                    <td>{{name.image}}</td>
+                    <td>{{name.price}}</td>
+                    <td><a href="{% url 'backend_panel:delete_models' %}?id={{name.id}}" class="btn btn-danger">Delete</a>
+                    <a href="{% url 'backend_panel:edit_models' %}?id={{name.id}}" class="btn btn-warning">Edit</a></td>
+                </tr>
+            {% endfor %}
+            {% endif %}
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

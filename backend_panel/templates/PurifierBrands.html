@@ -1,0 +1,27 @@
+{% extends 'admin-masterPage.html' %}
+{% block title %}
+Add Water Purifier Brands
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 h1 text-center">
+            <span>Add Brands</span>
+        </div>
+        <div class="col-sm-offset-3 col-sm-6">
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label>Brand</label>
+                    <input type="text" class="form-control" name="brand" placeholder="Brand">
+                </div>
+                <div>
+                    <input type="submit" value="Add Brand" class="btn btn-primary btn-block">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

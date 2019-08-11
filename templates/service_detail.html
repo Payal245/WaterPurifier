@@ -1,0 +1,14 @@
+{% extends 'masterPage.html' %}
+{% block title %}
+Service Details
+{% endblock %}
+{% block content %}
+<div style="background-color:rgba(200,200,200,0.8);height:300px; width:100%;">
+    {% if ser_data %}
+    {% for i in ser_data %}
+    <h2>{{ i.service }}</h2>
+    <p>{{ i.price }}</p>
+    {% endfor%}
+    {% endif %}
+</div>
+{% endblock %}
