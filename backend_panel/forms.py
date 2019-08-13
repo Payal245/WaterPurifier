@@ -1,5 +1,5 @@
 from django import forms
-from backend_panel.models import PurifierBrands, Modals, Descriptions, Features, ServiceCharges
+from backend_panel.models import PurifierBrands, Modals, Descriptions, Features, ServiceCharges,Aquagaurd_parts
 
 class PurifierBrandsForm(forms.ModelForm):
     class Meta:
@@ -25,6 +25,11 @@ class ServiceChargesForm(forms.ModelForm):
     class Meta:
         model = ServiceCharges
         exclude = ["id","service","price"]
+
+class Aquagaurd_partsForm(forms.ModelForm):
+    class Meta:
+        model = Aquagaurd_parts
+        exclude = ["id","company","name","quality","price","Desc","image"]
 
 
 

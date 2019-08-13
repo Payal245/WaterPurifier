@@ -27,7 +27,9 @@ urlpatterns = [
    url(r'^delete_service/$', views.del_service, name="delete_service"),
    url(r'^gallery/$',views.gallery),
    url(r'^brand_detail/$', views.brands_detail,name="brands_detail"),
-   url(r'^service_detail/$',views.service_details)
+   url(r'^service_detail/$',views.service_details),
+   url(r'aquagaurd_parts/$',views.Aquagaurd_parts),
+   url(r'update_parts/$',views.update_aquagaurd_parts)
 
 
 

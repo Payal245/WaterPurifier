@@ -1,6 +1,6 @@
 from django.shortcuts import render,HttpResponse, redirect
-from backend_panel.forms import PurifierBrandsForm, ModalsForm, DescriptionsForm, FeaturesForm, ServiceChargesForm
-from backend_panel.models import PurifierBrands, Modals, Descriptions, Features, ServiceCharges
+from backend_panel.forms import PurifierBrandsForm, ModalsForm, DescriptionsForm, FeaturesForm, ServiceChargesForm,Aquagaurd_partsForm
+from backend_panel.models import PurifierBrands, Modals, Descriptions, Features, ServiceCharges,Aquagaurd_parts
 from django.core.files.storage import FileSystemStorage
 
 # Create your views here.
@@ -189,3 +189,31 @@ def service_details(request):
     data = PurifierBrands.objects.all()
     ser_data = ServiceCharges.objects.all()
     return render(request,"service_detail.html",{'ser_data':ser_data})
+
+def Aquagaurd_parts(request):
+    data = PurifierBrands.objects.all()
+    if request.method == "POST":
+        form = Aquagaurd_partsForm(request.POST)
+        user_image = None
+        try:
+            if request.FILES["image"]:
+                my_file = request.FILES["image"]
+                fs = FileSystemStorage()
+                file_name = fs.save(my_file.name, my_file)
+                user_image = fs.url(file_name)
+                user_image = my_file.name
+        except:
+            pass
+        f = form.save(commit=False)
+        f.brand_id = request.POST['brand']
+        f.name = request.POST['name']
+        f.image = user_image
+        f.price = request.POST['price']
+        f.quality = request.POST['quality']
+        f.description = request.POST['desc']
+        f.save()
+    return render(request, "Aquagaurd_parts.html", {'data': data})
+
+def update_aquagaurd_parts(request):
+    data =Aquagaurd_parts.objects.all()
+    return render(request,"update_parts.html",{'data':data})

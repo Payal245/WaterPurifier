@@ -26,3 +26,12 @@ class ServiceCharges(models.Model):
     id = models.AutoField(primary_key=True)
     service = models.CharField(max_length=225,null=True,unique=True)
     price = models.CharField(max_length=225, default="", null=True)
+
+class Aquagaurd_parts(models.Model):
+    id  = models.AutoField(primary_key=True)
+    comapany = models.ForeignKey(PurifierBrands, on_delete=models.CASCADE)
+    name = models.CharField(max_length=225,default="", null=True,unique=True)
+    quality = models.CharField(max_length=225,default="",null=True)
+    image = models.CharField(max_length=225, default="", null=True)
+    price = models.CharField(max_length=225,default="",null=True)
+    Desc = models.CharField(max_length=225,default="",null=True)
