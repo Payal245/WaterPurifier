@@ -1,6 +1,6 @@
 from django.shortcuts import render,HttpResponse, redirect
-from backend_panel.forms import PurifierBrandsForm, ModalsForm, DescriptionsForm, FeaturesForm, ServiceChargesForm,Aquagaurd_partsForm
-from backend_panel.models import PurifierBrands, Modals, Descriptions, Features, ServiceCharges,Aquagaurd_parts
+from backend_panel.forms import PurifierBrandsForm, ModalsForm, DescriptionsForm, FeaturesForm, ServiceChargesForm, Aquagaurd_partsForm
+from backend_panel.models import PurifierBrands, Modals, Descriptions, Features, ServiceCharges, Aquagaurd_parts
 from django.core.files.storage import FileSystemStorage
 
 # Create your views here.
@@ -190,7 +190,7 @@ def service_details(request):
     ser_data = ServiceCharges.objects.all()
     return render(request,"service_detail.html",{'ser_data':ser_data})
 
-def Aquagaurd_parts(request):
+def aquagaurd_parts(request):
     data = PurifierBrands.objects.all()
     if request.method == "POST":
         form = Aquagaurd_partsForm(request.POST)
@@ -215,5 +215,5 @@ def Aquagaurd_parts(request):
     return render(request, "Aquagaurd_parts.html", {'data': data})
 
 def update_aquagaurd_parts(request):
-    data =Aquagaurd_parts.objects.all()
+    data = Aquagaurd_parts.objects.all()
     return render(request,"update_parts.html",{'data':data})
