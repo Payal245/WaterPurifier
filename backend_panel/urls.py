@@ -29,7 +29,9 @@ urlpatterns = [
    url(r'^brand_detail/$', views.brands_detail,name="brands_detail"),
    url(r'^service_detail/$',views.service_details),
    url(r'^aquagaurd_parts/$',views.aquagaurd_parts),
-   url(r'^update_parts/$',views.update_aquagaurd_parts)
+   url(r'^update_parts/$',views.update_aquagaurd_parts),
+   url(r'^edit_parts/$',views.edit_parts)
+
 
 
 

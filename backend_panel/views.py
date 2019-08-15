@@ -217,3 +217,28 @@ def aquagaurd_parts(request):
 def update_aquagaurd_parts(request):
     data = Aquagaurd_parts.objects.all()
     return render(request,"update_parts.html",{'data':data})
+
+def edit_parts(request):
+    get_id = request.GET['id']
+    data = Aquagaurd_parts.objects.all()
+    if request.method == "POST":
+        user_image = None
+        try:
+            if request.FILES["image"]:
+                my_file = request.FILES["image"]
+                fs = FileSystemStorage()
+                file_name = fs.save(my_file.name, my_file)
+                user_image = fs.url(file_name)
+                user_image = my_file.name
+        except:
+            pass
+        brand = request.POST['brand']
+        name = request.POST['name']
+        image = user_image
+        price = request.POST['price']
+        quality = request.POST['quality']
+        description = request.POST['desc']
+
+        update = Modals(id=get_id, brand_id=brand ,name=name,image=image,price=price,quality=quality,desc=description)
+        update.save(update_fields=['brand_id','name','image','price','quality','desc'])
+    return render(request, "Aquagaurd_parts.html",{'data':data})
