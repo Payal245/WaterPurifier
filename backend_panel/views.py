@@ -205,12 +205,12 @@ def aquagaurd_parts(request):
         except:
             pass
         f = form.save(commit=False)
-        f.brand_id = request.POST['brand']
+        f.company_id = request.POST['brand']
         f.name = request.POST['name']
         f.image = user_image
         f.price = request.POST['price']
         f.quality = request.POST['quality']
-        f.description = request.POST['desc']
+        f.Desc = request.POST['Desc']
         f.save()
     return render(request, "Aquagaurd_parts.html", {'data': data})
 
@@ -237,8 +237,8 @@ def edit_parts(request):
         image = user_image
         price = request.POST['price']
         quality = request.POST['quality']
-        description = request.POST['desc']
+        desc = request.POST['Desc']
 
-        update = Modals(id=get_id, brand_id=brand ,name=name,image=image,price=price,quality=quality,desc=description)
+        update = Modals(id=get_id, brand_id=brand ,name=name,image=image,price=price,quality=quality,desc=desc)
         update.save(update_fields=['brand_id','name','image','price','quality','desc'])
     return render(request, "Aquagaurd_parts.html",{'data':data})
