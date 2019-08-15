@@ -220,7 +220,7 @@ def update_aquagaurd_parts(request):
 
 def edit_parts(request):
     get_id = request.GET['id']
-    data = Aquagaurd_parts.objects.all()
+    data = PurifierBrands.objects.all()
     if request.method == "POST":
         user_image = None
         try:
@@ -238,7 +238,6 @@ def edit_parts(request):
         price = request.POST['price']
         quality = request.POST['quality']
         desc = request.POST['Desc']
-
-        update = Modals(id=get_id, brand_id=brand ,name=name,image=image,price=price,quality=quality,desc=desc)
-        update.save(update_fields=['brand_id','name','image','price','quality','desc'])
+        update = Aquagaurd_parts(id=get_id, company_id=brand ,name=name,image=image,price=price,quality=quality,Desc=desc)
+        update.save(update_fields=['company_id','name','image','price','quality','Desc'])
     return render(request, "Aquagaurd_parts.html",{'data':data})
