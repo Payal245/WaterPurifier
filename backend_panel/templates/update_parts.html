@@ -32,7 +32,7 @@ Update Aquagaurd_parts
                     <td>{{name.quality}}</td>
                     <td>{{name.price}}</td>
                     <td>{{name.Desc}}</td>
-                    <td><a href="#" class="btn btn-danger">Delete</a>
+                    <td><a href="{% url 'backend_panel:delete_parts' %}?id={{name.id}}" class="btn btn-danger">Delete</a>
                     <a href="{% url 'backend_panel:edit_parts' %}?id={{name.id}}" class="btn btn-warning">Edit</a></td>
                 </tr>
             {% endfor %}

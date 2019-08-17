@@ -241,3 +241,12 @@ def edit_parts(request):
         update = Aquagaurd_parts(id=get_id, company_id=brand ,name=name,image=image,price=price,quality=quality,Desc=desc)
         update.save(update_fields=['company_id','name','image','price','quality','Desc'])
     return render(request, "Aquagaurd_parts.html",{'data':data})
+
+def delete_parts(request):
+    get_id = request.GET['id']
+    data = Aquagaurd_parts.objects.all()
+    data.delete()
+    return redirect("/update_parts/")
+
+
+

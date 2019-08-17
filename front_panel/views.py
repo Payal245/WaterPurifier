@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect
 from front_panel.foms import RoleDetailsForm
 from front_panel.models import RoleDetails
-from backend_panel.models import PurifierBrands, ServiceCharges
+from backend_panel.models import PurifierBrands, ServiceCharges , Modals ,Aquagaurd_parts
 from miscFiles.genericFunction import generate_string,link_send,otp_generate,otp_send
 from django.contrib.auth.hashers import make_password,check_password
 from django.core.files.storage import FileSystemStorage
@@ -99,7 +99,24 @@ def forgot_password(request):
     return render(request,"forgottenPasword.html")
 
 def admin_index(request):
-    return render(request,"admin_index.html")
+    data= RoleDetails.objects.all()
+    b_data= PurifierBrands.objects.all()
+    t_data = ServiceCharges.objects.all()
+    m_data = Modals.objects.all()
+    p_data = Aquagaurd_parts.objects.all()
+    user_count = 0
+    brand_data = 0
+    model_data = 0
+    service_data = 0
+    for i in data:
+        user_count += 1
+    for j in b_data:
+        brand_data += 1
+    for k in m_data:
+        model_data += 1
+    for l in t_data:
+        service_data += 1
+    return render(request,"admin_index.html",{'data': data,'m_data':m_data, 'p_data':p_data,'b_data':b_data,'user_count': user_count,'brand_data':brand_data,'model_data':model_data,'service_data':service_data})
 
 def logout(request):
     request.session['email'] = ""
