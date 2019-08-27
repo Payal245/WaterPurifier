@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect
 from front_panel.foms import RoleDetailsForm
 from front_panel.models import RoleDetails
-from backend_panel.models import PurifierBrands, ServiceCharges , Modals ,Aquagaurd_parts
+from backend_panel.models import PurifierBrands, ServiceCharges , Modals ,Aquagaurd_parts,TopBrands, Descriptions,Features
 from miscFiles.genericFunction import generate_string,link_send,otp_generate,otp_send
 from django.contrib.auth.hashers import make_password,check_password
 from django.core.files.storage import FileSystemStorage
@@ -9,8 +9,16 @@ from django.core.files.storage import FileSystemStorage
 # Create your views here.
 def index(request):
     data = PurifierBrands.objects.all()
+    bd_data=[]
+    c=0
+    for i in data:
+        if c==5:
+            break
+        bd_data.append(i)
+        c += 1
     s_data = ServiceCharges.objects.all()
-    return render(request,"index.html",{'data':data,'s_data':s_data})
+    top_data = TopBrands.objects.all()
+    return render(request,"index.html",{'data':data,'bd_data':bd_data,'s_data':s_data,'top_data':top_data})
 
 def registration(request):
     if request.method == "POST":
@@ -170,3 +178,31 @@ def user_search(request):
             return render(request,"user_search.html",{'data':data})
         except:
             return redirect("/admin_index/")
+
+def about(request):
+    return render(request,"about.html")
+
+def modal_search(request):
+    if request.method == "POST":
+        get_name = request.POST['search']
+        b_data = PurifierBrands.objects.filter(brands=get_name)
+        model_data = Modals.objects.filter(name=get_name)
+        if len(b_data)!=0:
+           for i in b_data:
+               get_id = i.id
+           data = PurifierBrands.objects.all()
+           brands_data = PurifierBrands.objects.get(id=get_id)
+           model_data = Modals.objects.filter(brand_id=get_id)
+           return render(request, "brands_detail.html",{'data': data, 'brands_data': brands_data, 'model_data': model_data})
+        elif len(model_data)!=0:
+            for i in model_data:
+                get_id = i.id
+            data = PurifierBrands.objects.all()
+            m_data = Modals.objects.get(id=get_id)
+            d_data = Descriptions.objects.filter(modal_id=get_id)
+            f_data = Features.objects.filter(modal_id=get_id)
+            return render(request, "modal_detail.html",{'data': data, 'm_data': m_data, 'd_data': d_data, 'f_data': f_data})
+        else:
+            return HttpResponse("OOPs! Data not found")
+
+

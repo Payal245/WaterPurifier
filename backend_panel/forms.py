@@ -1,10 +1,15 @@
 from django import forms
-from backend_panel.models import PurifierBrands, Modals, Descriptions, Features, ServiceCharges,Aquagaurd_parts
+from backend_panel.models import PurifierBrands, Modals, Descriptions, Features, ServiceCharges,Aquagaurd_parts,TopBrands
 
 class PurifierBrandsForm(forms.ModelForm):
     class Meta:
         model = PurifierBrands
         exclude = ["id","brands"]
+
+class TopBrandsForm(forms.ModelForm):
+    class Meta:
+        model = TopBrands
+        exclude = ["id","brand","image"]
 
 class ModalsForm(forms.ModelForm):
     class Meta:

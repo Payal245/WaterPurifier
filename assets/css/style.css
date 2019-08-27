@@ -564,7 +564,7 @@ li.w3pages .dropdown-menu > li > a:hover{
 /*-- //banner --*/
 /*-- banner-bottom --*/
 .banner-bottom,.team,.checkout,.additional_info,.team-bottom,.single,.mail,.special-deals,.about,.faq,.typo,.new-products,.banner-bottom1,.top-brands,.mobiles,.w3l_related_products{
-	padding:5em 0;
+	padding:3em 0;
 }
 .modal-body iframe {
     width: 100%;
@@ -617,6 +617,11 @@ padding-top:20px;
     border: none;
     min-height: 2.5em;
     padding:0em 1em 0;
+}
+.piche{
+width:100%;
+height:auto;
+background-color:rgba(180,180,180,0.9);
 }
 .modal button.close {
     color: #ff5063;

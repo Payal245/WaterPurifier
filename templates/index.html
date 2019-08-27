@@ -1182,21 +1182,12 @@ N.A Alkaline Water Purifier
 		<h3>Top Brands</h3>
 		<div class="sliderfig">
 			<ul id="flexiselDemo1">
+				{% for i in top_data %}
 				<li>
-					<img src="/assets/images/tb1.jpg" alt=" " class="img-responsive" />
+					<img src="../media/{{ i.image }}" alt=" " class="img-responsive" />
 				</li>
-				<li>
-					<img src="/assets/images/tb2.jpg" alt=" " class="img-responsive" />
-				</li>
-				<li>
-					<img src="/assets/images/tb3.jpg" alt=" " class="img-responsive" />
-				</li>
-				<li>
-					<img src="/assets/images/tb4.jpg" alt=" " class="img-responsive" />
-				</li>
-				<li>
-					<img src="/assets/images/tb5.jpg" alt=" " class="img-responsive" />
-				</li>
+				{% endfor %}
+
 			</ul>
 		</div>
 		<script type="text/javascript">

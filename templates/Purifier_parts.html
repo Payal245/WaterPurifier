@@ -1,0 +1,27 @@
+{% extends "masterPage.html" %}
+{% block title %}
+Purifier Parts
+{% endblock %}
+{% block content %}
+<div style="background-color:rgba(200,200,200,0.8);height:100%;width:100%;">
+
+    <div class="col-sm-12 h1 text-center" style="background-color:rgba(225,40,50,1); height:80px; margin-top:0px; color:white; margin-bottom:30px;padding-top:18px;"><h1>Purifier Parts</h1></div>
+    <div class="container" >
+    <div class="row">
+        {% for i in parts_data %}
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail" >
+                <img src="../media/{{ i.image }}" alt="/" height="150px" width="150px" >
+                <div class="caption">
+                     <h4 style="font-weight:bold;">{{ i.name|slice:"20" }}</h4>
+                    <p>{{ i.price }}</p>
+                    <div class="hua" style="height:36px; width:214px; background-color:#23b5b9; padding-left:63px; padding-top:7px; margin-left:8px;"><a href="#" style="color:white; font-style:bold">Click here!</a></div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+</div>
+{% endblock %}

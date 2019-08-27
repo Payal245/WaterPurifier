@@ -5,6 +5,12 @@ class PurifierBrands(models.Model):
     id = models.AutoField(primary_key=True)
     brands = models.CharField(max_length=225,null=True,unique=True)
 
+class TopBrands(models.Model):
+    id  =models.AutoField(primary_key=True)
+    brand = models.ForeignKey(PurifierBrands, on_delete=models.CASCADE)
+    image = models.CharField(max_length=225,default="",null=True)
+
+
 class Modals(models.Model):
     id = models.AutoField(primary_key=True)
     brand = models.ForeignKey(PurifierBrands, on_delete=models.CASCADE)

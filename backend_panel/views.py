@@ -1,6 +1,6 @@
 from django.shortcuts import render,HttpResponse, redirect
-from backend_panel.forms import PurifierBrandsForm, ModalsForm, DescriptionsForm, FeaturesForm, ServiceChargesForm, Aquagaurd_partsForm
-from backend_panel.models import PurifierBrands, Modals, Descriptions, Features, ServiceCharges, Aquagaurd_parts
+from backend_panel.forms import PurifierBrandsForm, ModalsForm, DescriptionsForm, FeaturesForm, ServiceChargesForm, Aquagaurd_partsForm,TopBrandsForm
+from backend_panel.models import PurifierBrands, Modals, Descriptions, Features, ServiceCharges, Aquagaurd_parts,TopBrands
 from django.core.files.storage import FileSystemStorage
 
 # Create your views here.
@@ -35,6 +35,26 @@ def modal_details(request):
         f.save()
     return render(request,"purifier_modals.html",{'data':data})
 
+def top_brand(request):
+    data = PurifierBrands.objects.all()
+    if request.method == "POST":
+        form = TopBrandsForm(request.POST)
+        user_image = None
+        try:
+            if request.FILES["image"]:
+                my_file = request.FILES["image"]
+                fs = FileSystemStorage()
+                file_name = fs.save(my_file.name, my_file)
+                user_image = fs.url(file_name)
+                user_image = my_file.name
+        except:
+            pass
+        f = form.save(commit=False)
+        f.brand_id = request.POST['brand']
+        f.image = user_image
+        f.save()
+    return render(request,"top_brand.html",{'data':data})
+
 def description(request):
     data = Modals.objects.all()
     if request.method == "POST":
@@ -58,6 +78,10 @@ def features(request):
 def update_brands(request):
     data = PurifierBrands.objects.all()
     return render(request,"update_brands.html", {'data': data})
+
+def update_top_brands(request):
+    data = TopBrands.objects.all()
+    return render(request,"update_top_brand.html", {'data': data})
 
 def update_models(request):
     data = Modals.objects.all()
@@ -107,11 +131,38 @@ def edit_models(request):
         update.save(update_fields=['brand_id','name','image','price'])
     return render(request, "purifier_modals.html",{'data':data})
 
+def edit_top_brand(request):
+    get_id = request.GET['id']
+    data = PurifierBrands.objects.all()
+    if request.method == "POST":
+        user_image = None
+        try:
+            if request.FILES["image"]:
+                my_file = request.FILES["image"]
+                fs = FileSystemStorage()
+                file_name = fs.save(my_file.name, my_file)
+                user_image = fs.url(file_name)
+                user_image = my_file.name
+        except:
+            pass
+        brand = request.POST['brand']
+        image = user_image
+        update = TopBrands(id=get_id, brand_id=brand ,image=image)
+        update.save(update_fields=['brand_id','image'])
+    return render(request, "top_brand.html",{'data':data})
+
+
 def delete_modals(request):
     get_id = request.GET['id']
     data = Modals.objects.get(id=get_id)
     data.delete()
     return redirect("/update_models/")
+
+def delete_top_brand(request):
+    get_id = request.GET['id']
+    data = TopBrands.objects.get(id=get_id)
+    data.delete()
+    return redirect("/update_top_brand/")
 
 def edit_description(request):
     get_id = request.GET['id']
@@ -247,6 +298,21 @@ def delete_parts(request):
     data = Aquagaurd_parts.objects.all()
     data.delete()
     return redirect("/update_parts/")
+
+
+def model_detail(request):
+    data= PurifierBrands.objects.all()
+    get_id = request.GET['id']
+    m_data = Modals.objects.get(id=get_id)
+    d_data = Descriptions.objects.filter(modal_id = get_id)
+    f_data=Features.objects.filter(modal_id = get_id)
+    return render(request,"modal_detail.html",{'data':data,'m_data':m_data,'d_data':d_data,'f_data':f_data})
+
+def purifier_parts(request):
+    parts_data = Aquagaurd_parts.objects.all()
+    return render(request,"purifier_parts.html",{'parts_data':parts_data})
+
+
 
 
 

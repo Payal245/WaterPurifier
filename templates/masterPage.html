@@ -1,9 +1,4 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -134,8 +129,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<input class="search_box" type="checkbox" id="search_box">
 			<label class="icon-search" for="search_box"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></label>
 			<div class="search_form">
-				<form action="#" method="post">
-					<input type="text" name="Search" placeholder="Search...">
+				<form action="/brand_search/" method="post">
+					{% csrf_token %}
+					<input type="text" name="search" placeholder="Search...">
 					<input type="submit" value="Send">
 				</form>
 			</div>
@@ -160,6 +156,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<ul class="nav navbar-nav">
 					<li><a href="{% url 'front_panel:index' %}" class="act">Home</a></li>
 					<!-- Mega Menu -->
+					<li><a href="/about/">About Us</a></li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Water Purifier <b class="caret"></b></a>
 						<ul class="dropdown-menu multi-column columns-3">
@@ -184,7 +181,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							</div>
 						</ul>
 					</li>
-					<li><a href="about.html">About Us</a></li>
 					<li class="w3pages"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Purifier Service <span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							{% if s_data %}
@@ -194,7 +190,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							{% endif %}
 						</ul>
 					</li>
-					<li><a href="mail.html">Mail Us</a></li>
+					<li><a href="/purifier_parts/">Purifier Parts</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -218,7 +214,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="col-md-3 w3_footer_grid">
 				<h3>Information</h3>
 				<ul class="info">
-					<li><a href="about.html">About Us</a></li>
+					<li><a href="/about/">About Us</a></li>
 					<li><a href="mail.html">Contact Us</a></li>
 					<li><a href="codes.html">Short Codes</a></li>
 					<li><a href="faq.html">FAQ's</a></li>
@@ -226,19 +222,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</ul>
 			</div>
 			<div class="col-md-3 w3_footer_grid">
-				<h3>Category</h3>
+				<h3>Brands</h3>
 				<ul class="info">
-					<li><a href="products.html">Mobiles</a></li>
-					<li><a href="products1.html">Laptops</a></li>
-					<li><a href="products.html">Purifiers</a></li>
-					<li><a href="products1.html">Wearables</a></li>
-					<li><a href="products2.html">Kitchen</a></li>
+					{% if bd_data %}
+					    {% for i in bd_data %}
+					    <li><a href="{% url 'backend_panel:brands_detail' %}?id={{i.id}}">{{ i.brands }}</a></li>
+					    {% endfor %}
+					{% endif %}
 				</ul>
 			</div>
 			<div class="col-md-3 w3_footer_grid">
 				<h3>Profile</h3>
 				<ul class="info">
-					<li><a href="index.html">Home</a></li>
+					<li><a href="/home/">Home</a></li>
 					<li><a href="products.html">Today's Deals</a></li>
 				</ul>
 				<h4>Follow Us</h4>
@@ -254,17 +250,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="clearfix"> </div>
 		</div>
 	</div>
-	<div class="footer-copy">
-		<div class="footer-copy1">
+
+	<div class="footer-copy1">
 			<div class="footer-copy-pos">
 				<a href="#home1" class="scroll"><img src="/assets/images/arrow.png" alt=" " class="img-responsive" /></a>
 			</div>
 		</div>
-		<div class="container">
-			<p>&copy; 2017 Electronic Store. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
-		</div>
 	</div>
-</div>
+
 <!-- //footer -->
 <!-- cart-js -->
 <script src="/assets/js/minicart.js"></script>

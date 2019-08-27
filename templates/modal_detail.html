@@ -1,0 +1,31 @@
+{% extends 'masterPage.html' %}
+{% block title %}
+{% endblock %}
+{% block content %}
+<div class="piche" style="height:800px;">
+    {% if  m_data %}
+    <div class="col-sm-12 h1 text-center" style="background-color:rgba(225,40,50,1); height:80px; margin-top:0px; color:white; margin-bottom:30px;padding-top:18px;"><h1>{{ m_data.name }}</h1></div>
+    <div>
+        <img  src="../media/{{ m_data.image }}" alt="/" style="height:250px; width:250px; float:left; margin-left:100px; margin-right:100px;">
+        <p style="font-weight:bold; padding-top:135px; font-size:25px;">{{ m_data.name }}</p>
+        <p style="padding-top:55px; color:blue; font-weight:bold; font-size:16px;">Price: {{ m_data.price }}</p>
+        {% if d_data %}
+        <div style="width:1000px;"><p style="padding-top:15px; color:black; font-size:18px; font-weight:bold; ">Desc:</p>
+            {% for i in d_data %}
+            {{ i.description }}
+            <p> </p>
+            {% endfor %}
+            {% endif %}
+            {% if f_data %}
+            <div style="width:1000px;"><p style="padding-top:40px; color:blue; padding-left:30px; font-size:20px; font-weight:bold;">Feature:</p>
+                {% for i in f_data %}
+               <span style="padding-left:20px;">  >  </span><span style="padding-left:10px;">{{ i.features }}</span>
+                <p>  </p>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
