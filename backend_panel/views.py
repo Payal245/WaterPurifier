@@ -239,7 +239,7 @@ def brands_detail(request):
 def service_details(request):
     data = PurifierBrands.objects.all()
     ser_data = ServiceCharges.objects.all()
-    return render(request,"service_detail.html",{'ser_data':ser_data})
+    return render(request,"service_detail.html",{'data':data,'ser_data':ser_data})
 
 def aquagaurd_parts(request):
     data = PurifierBrands.objects.all()
@@ -295,7 +295,7 @@ def edit_parts(request):
 
 def delete_parts(request):
     get_id = request.GET['id']
-    data = Aquagaurd_parts.objects.all()
+    data = Aquagaurd_parts.objects.get(id=get_id)
     data.delete()
     return redirect("/update_parts/")
 
@@ -309,8 +309,9 @@ def model_detail(request):
     return render(request,"modal_detail.html",{'data':data,'m_data':m_data,'d_data':d_data,'f_data':f_data})
 
 def purifier_parts(request):
+    data=PurifierBrands.objects.all()
     parts_data = Aquagaurd_parts.objects.all()
-    return render(request,"purifier_parts.html",{'parts_data':parts_data})
+    return render(request,"purifier_parts.html",{'data':data,'parts_data':parts_data})
 
 
 
