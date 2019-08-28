@@ -328,7 +328,7 @@ CREATE TABLE IF NOT EXISTS `backend_panel_features` (
   CONSTRAINT `backend_panel_featur_modal_id_642e230e_fk_backend_p` FOREIGN KEY (`modal_id`) REFERENCES `backend_panel_modals` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=215 DEFAULT CHARSET=latin1;
 
--- Dumping data for table waterpurifier_db.backend_panel_features: ~244 rows (approximately)
+-- Dumping data for table waterpurifier_db.backend_panel_features: ~214 rows (approximately)
 /*!40000 ALTER TABLE `backend_panel_features` DISABLE KEYS */;
 INSERT INTO `backend_panel_features` (`id`, `features`, `modal_id`) VALUES
 	(1, '1.WQA certified patented side stream RO membrane', 5),
