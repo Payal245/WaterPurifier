@@ -388,7 +388,7 @@ N.A Alkaline Water Purifier
 									</div>
 								</div>
 								<h5><a href="single.html">LED Tv</a></h5>
-								<div class="simpleCart_shelfItem">
+								<div class="simpleCart_shelfItem">``w;;
 									<p><span>$700</span> <i class="item_price">$680</i></p>
 									<form action="#" method="post">
 										<input type="hidden" name="cmd" value="_cart" />
@@ -445,11 +445,11 @@ N.A Alkaline Water Purifier
 									<img src="/assets/images/17.jpg" alt=" " class="img-responsive" />
 									<img src="/assets/images/18.jpg" alt=" " class="img-responsive" />
 									<div class="w3_hs_bottom">
-										<ul>
+										<hul>
 											<li>
 												<a href="#" data-toggle="modal" data-target="#myModal4"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
 											</li>
-										</ul>
+										</hul>
 									</div>
 								</div>
 								<h5><a href="single.html">Grinder</a></h5>
@@ -654,7 +654,7 @@ N.A Alkaline Water Purifier
 					</div>
 					<div class="clearfix"> </div>
 				</div>
-			</section>
+			</section>h
 		</div>
 	</div>
 </div>
@@ -1053,12 +1053,16 @@ N.A Alkaline Water Purifier
 <!-- new-products -->
 <div class="new-products">
 	<div class="container">
-		<h3>New Products</h3>
+		<h3>New Models</h3>
 		<div class="agileinfo_new_products_grids">
 			<div class="col-md-3 agileinfo_new_products_grid">
 				<div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
 					<div class="hs-wrapper hs-wrapper1">
-						<img src="/assets/images/25.jpg" alt=" " class="img-responsive" />
+						{% if slide %}
+						{% for i in slide %}
+						<img src="../media/{{ i.image }}" alt=" " height="340" width="255">
+						{% endfor %}
+						{% endif %}
 						<div class="w3_hs_bottom w3_hs_bottom_sub">
 							<ul>
 								<li>
@@ -1067,7 +1071,7 @@ N.A Alkaline Water Purifier
 							</ul>
 						</div>
 					</div>
-					<h5><a href="single.html">Laptops</a></h5>
+					<h5><a href="single.html">Aquagaurd</a></h5>
 					<div class="simpleCart_shelfItem">
 						<p><span>$520</span> <i class="item_price">$500</i></p>
 						<form action="#" method="post">
@@ -1075,7 +1079,7 @@ N.A Alkaline Water Purifier
 							<input type="hidden" name="add" value="1">
 							<input type="hidden" name="w3ls_item" value="Red Laptop">
 							<input type="hidden" name="amount" value="500.00">
-							<button type="submit" class="w3ls-cart">Add to cart</button>
+							<button type="submit" class="w3ls-cart">Click here!</button>
 						</form>
 					</div>
 				</div>
@@ -1083,11 +1087,11 @@ N.A Alkaline Water Purifier
 			<div class="col-md-3 agileinfo_new_products_grid">
 				<div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
 					<div class="hs-wrapper hs-wrapper1">
-						<img src="/assets/images/27.jpg" alt=" " class="img-responsive" />
-						<img src="/assets/images/28.jpg" alt=" " class="img-responsive" />
-						<img src="/assets/images/29.jpg" alt=" " class="img-responsive" />
-						<img src="/assets/images/30.jpg" alt=" " class="img-responsive" />
-						<img src="/assets/images/31.jpg" alt=" " class="img-responsive" />
+						{% if smith %}
+						{% for j in smith %}
+						<img src="../media/{{ j.image }}" alt=" " height="340" width="255">
+						{% endfor %}
+						{% endif %}
 						<div class="w3_hs_bottom w3_hs_bottom_sub">
 							<ul>
 								<li>
@@ -1096,7 +1100,7 @@ N.A Alkaline Water Purifier
 							</ul>
 						</div>
 					</div>
-					<h5><a href="single.html">Black Phone</a></h5>
+					<h5><a href="single.html">Ao smith</a></h5>
 					<div class="simpleCart_shelfItem">
 						<p><span>$380</span> <i class="item_price">$370</i></p>
 						<form action="#" method="post">
@@ -1104,7 +1108,7 @@ N.A Alkaline Water Purifier
 							<input type="hidden" name="add" value="1">
 							<input type="hidden" name="w3ls_item" value="Black Phone">
 							<input type="hidden" name="amount" value="370.00">
-							<button type="submit" class="w3ls-cart">Add to cart</button>
+							<button type="submit" class="w3ls-cart">Click here!</button>
 						</form>
 					</div>
 				</div>
@@ -1112,11 +1116,11 @@ N.A Alkaline Water Purifier
 			<div class="col-md-3 agileinfo_new_products_grid">
 				<div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
 					<div class="hs-wrapper hs-wrapper1">
-						<img src="/assets/images/34.jpg" alt=" " class="img-responsive" />
-						<img src="/assets/images/33.jpg" alt=" " class="img-responsive" />
-						<img src="/assets/images/32.jpg" alt=" " class="img-responsive" />
-						<img src="/assets/images/35.jpg" alt=" " class="img-responsive" />
-						<img src="/assets/images/36.jpg" alt=" " class="img-responsive" />
+						{% if kent %}
+						{% for k in kent %}
+						<img src="../media/{{ k.image }}" alt=" " height="340" width="255">
+						{% endfor %}
+						{% endif %}
 						<div class="w3_hs_bottom w3_hs_bottom_sub">
 							<ul>
 								<li>
@@ -1125,7 +1129,7 @@ N.A Alkaline Water Purifier
 							</ul>
 						</div>
 					</div>
-					<h5><a href="single.html">Kids Toy</a></h5>
+					<h5><a href="single.html">Kent</a></h5>
 					<div class="simpleCart_shelfItem">
 						<p><span>$150</span> <i class="item_price">$100</i></p>
 						<form action="#" method="post">
@@ -1133,7 +1137,7 @@ N.A Alkaline Water Purifier
 							<input type="hidden" name="add" value="1">
 							<input type="hidden" name="w3ls_item" value="Kids Toy">
 							<input type="hidden" name="amount" value="100.00">
-							<button type="submit" class="w3ls-cart">Add to cart</button>
+							<button type="submit" class="w3ls-cart">Click here!</button>
 						</form>
 					</div>
 				</div>
@@ -1141,11 +1145,11 @@ N.A Alkaline Water Purifier
 			<div class="col-md-3 agileinfo_new_products_grid">
 				<div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
 					<div class="hs-wrapper hs-wrapper1">
-						<img src="/assets/images/37.jpg" alt=" " class="img-responsive" />
-						<img src="/assets/images/38.jpg" alt=" " class="img-responsive" />
-						<img src="/assets/images/39.jpg" alt=" " class="img-responsive" />
-						<img src="/assets/images/40.jpg" alt=" " class="img-responsive" />
-						<img src="/assets/images/41.jpg" alt=" " class="img-responsive" />
+						{% if livepure %}
+						{% for l in livepure %}
+						<img src="../media/{{ l.image }}" alt=" " height="340" width="255">
+						{% endfor %}
+						{% endif %}
 						<div class="w3_hs_bottom w3_hs_bottom_sub">
 							<ul>
 								<li>
@@ -1154,7 +1158,7 @@ N.A Alkaline Water Purifier
 							</ul>
 						</div>
 					</div>
-					<h5><a href="single.html">Induction Stove</a></h5>
+					<h5><a href="single.html">Livepure</a></h5>
 					<div class="simpleCart_shelfItem">
 						<p><span>$280</span> <i class="item_price">$250</i></p>
 						<form action="#" method="post">
@@ -1162,7 +1166,7 @@ N.A Alkaline Water Purifier
 							<input type="hidden" name="add" value="1">
 							<input type="hidden" name="w3ls_item" value="Induction Stove">
 							<input type="hidden" name="amount" value="250.00">
-							<button type="submit" class="w3ls-cart">Add to cart</button>
+							<button type="submit" class="w3ls-cart">Click here!</button>
 						</form>
 					</div>
 				</div>

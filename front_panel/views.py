@@ -9,7 +9,10 @@ from django.core.files.storage import FileSystemStorage
 # Create your views here.
 def index(request):
     data = PurifierBrands.objects.all()
-    slide = Modals.objects.all()
+    slide = Modals.objects.filter(brand_id=5)
+    smith = Modals.objects.filter(brand_id=4)
+    kent = Modals.objects.filter(brand_id=7)
+    livepure = Modals.objects.filter(brand_id=9)
     bd_data=[]
     c=0
     for i in data:
@@ -19,7 +22,7 @@ def index(request):
         c += 1
     s_data = ServiceCharges.objects.all()
     top_data = TopBrands.objects.all()
-    return render(request,"index.html",{'data':data,'bd_data':bd_data,'s_data':s_data,'top_data':top_data, 'slide':slide})
+    return render(request,"index.html",{'data':data,'bd_data':bd_data,'s_data':s_data,'top_data':top_data, 'slide':slide,'kent':kent,'livepure':livepure,'smith':smith})
 
 def registration(request):
     if request.method == "POST":
