@@ -83,6 +83,8 @@ def update_password(request):
             update.save(update_fields=['active', 'verify_link', 'password'])
             request.session['email'] = ""
             return redirect("/home/")
+        else:
+            return HttpResponse("Please enter same password ")
     return render(request,"updatePassword.html")
 
 def forgot_password(request):
@@ -135,6 +137,7 @@ def admin_index(request):
 
 def logout(request):
     request.session['email'] = ""
+    request.session['name'] = ""
     return redirect("/")
 
 def admin_update_profile(request):
@@ -155,6 +158,7 @@ def admin_update_profile(request):
         get_address = request.POST['address']
         update = RoleDetails(email=get_email, name=get_name, mobile=get_mobile, address=get_address, image=user_image)
         update.save(update_fields=['name','mobile','address','image'])
+        request.session['image'] = user_image
         return redirect("/admin_index/")
     return render(request, "update_admin_profile.html")
 
