@@ -24,8 +24,22 @@
             </div>
         </div>
         {% endfor %}
+        <div class="pagination">
+            <span class="step-links">
+                {% if model_data.has_previous %}
+                <a href="?is_private={{ model_data.previous_page_number }}">previous</a>
+                {% endif %}
+                <span class="current">
+                    Page {{ model_data.number }} of {{ model_data.paginator.num_pages }}.
+                </span>
+                {% if model_data.has_next %}
+                <a href="?is_private={{ model_data.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+        </div>
     </div>
 </div>
+
 </div>
 
 

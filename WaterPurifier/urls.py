@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^$',views.index),
     url(r'^', include('front_panel.urls')),
     url(r'^', include('backend_panel.urls')),
+    url(r'^User_search/$', views.user_search),
     url(r'^registration/$', views.registration),
     url(r'^update_password/$',views.update_password),
     url(r'^verify_link/$', views.verify_link),
@@ -34,7 +35,6 @@ urlpatterns = [
     url(r'^admin_index/$',views.admin_index),
     url(r'^update_admin_profile/$',views.admin_update_profile),
     url(r'^update_admin_password/$',views.admin_update_password),
-    url(r'^User_search/$', views.user_search),
     url(r'^about/$',views.about),
     url(r'^brand_search/$', views.modal_search),
 

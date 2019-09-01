@@ -38,6 +38,8 @@ urlpatterns = [
    url(r'^edit_parts/$',views.edit_parts,name="edit_parts"),
    url(r'^delete_parts/$',views.delete_parts,name="delete_parts"),
    url(r'^purifier_parts/$', views.purifier_parts),
+   url(r'^parts_detail/$', views.parts_detail, name="parts_detail"),
+
 
 
 

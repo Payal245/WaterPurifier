@@ -12,6 +12,7 @@ def index(request):
     slide = Modals.objects.filter(brand_id=5)
     smith = Modals.objects.filter(brand_id=4)
     kent = Modals.objects.filter(brand_id=7)
+    blue =Modals.objects.filter(brand_id = 6)
     livepure = Modals.objects.filter(brand_id=9)
     bd_data=[]
     c=0
@@ -20,9 +21,11 @@ def index(request):
             break
         bd_data.append(i)
         c += 1
+    s=len(smith)
+
     s_data = ServiceCharges.objects.all()
     top_data = TopBrands.objects.all()
-    return render(request,"index.html",{'data':data,'bd_data':bd_data,'s_data':s_data,'top_data':top_data, 'slide':slide,'kent':kent,'livepure':livepure,'smith':smith})
+    return render(request,"index.html",{'data':data,'blue':blue,'bd_data':bd_data,'s_data':s_data,'top_data':top_data, 'slide':slide,'kent':kent,'livepure':livepure,'smith':smith})
 
 def registration(request):
     if request.method == "POST":
@@ -179,12 +182,20 @@ def user_search(request):
         get_email = request.POST['email']
         try:
             data = RoleDetails.objects.get(email=get_email)
-            return render(request,"user_search.html",{'data':data})
+            return render(request, "user_search.html", {'data':data})
         except:
             return redirect("/admin_index/")
 
 def about(request):
-    return render(request,"about.html")
+    data = PurifierBrands.objects.all()
+    bd_data = []
+    c = 0
+    for i in data:
+        if c == 5:
+            break
+        bd_data.append(i)
+        c += 1
+    return render(request,"about.html",{'data':data,'bd_data':bd_data})
 
 def modal_search(request):
     if request.method == "POST":
