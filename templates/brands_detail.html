@@ -12,7 +12,7 @@
     {% endif %}
     <div class="container" >
     <div class="row">
-        {% for i in model_data %}
+        {% for i in md_data %}
         <div class="col-sm-6 col-md-3" >
             <div class="thumbnail"   >
                 <div class="caption">
@@ -24,23 +24,18 @@
             </div>
         </div>
         {% endfor %}
-        <div class="pagination">
-            <span class="step-links">
-                {% if model_data.has_previous %}
-                <a href="?is_private={{ model_data.previous_page_number }}">previous</a>
-                {% endif %}
-                <span class="current">
-                    Page {{ model_data.number }} of {{ model_data.paginator.num_pages }}.
-                </span>
-                {% if model_data.has_next %}
-                <a href="?is_private={{ model_data.next_page_number }}">next</a>
-                {% endif %}
-            </span>
-        </div>
     </div>
 </div>
 
 </div>
+ {% if brands_data %}
+<nav aria-label="...">
+  <ul class="pager">
+    <li><a href="{% url 'backend_panel:brands_detail' %}?id={{brands_data.id}}">Previous</a></li>
+    <li><a href="{% url 'backend_panel:brands_detail2' %}?id={{brands_data.id}}">Next</a></li>
+  </ul>
+</nav>
+{% endif %}
 
 
 

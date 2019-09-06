@@ -2,13 +2,17 @@
 {% block title %}
 {% endblock %}
 {% block content %}
-<div class="piche" style="height:400px;">
+<div class="piche" style="height:500px;">
     {% if  p_data %}
     <div class="col-sm-12 h1 text-center" style="background-color:rgba(225,40,50,1); height:80px; margin-top:0px; color:white; margin-bottom:30px;padding-top:18px;"><h1>{{ p_data.name }}</h1></div>
     <div>
         <img  src="../media/{{ p_data.image }}" alt="/" style="height:250px; width:250px; float:left; margin-left:100px; margin-right:100px;">
         <p style="font-weight:bold; padding-top:135px; font-size:25px;">{{ p_data.name }}</p>
         <p style="padding-top:55px; color:blue; font-weight:bold; font-size:16px;">Price: {{ p_data.price }}</p>
+        <div style="width:1000px;"><p style="padding-top:15px; color:black; font-size:18px; font-weight:bold; ">Quality:</p>
+            {{ p_data.quality}}
+            <p> </p>
+        </div>
         <div style="width:1000px;"><p style="padding-top:15px; color:black; font-size:18px; font-weight:bold; ">Desc:</p>
             {{ p_data.Desc}}
             <p> </p>

@@ -2,7 +2,7 @@ from django.shortcuts import render,HttpResponse, redirect
 from backend_panel.forms import PurifierBrandsForm, ModalsForm, DescriptionsForm, FeaturesForm, ServiceChargesForm, Aquagaurd_partsForm,TopBrandsForm
 from backend_panel.models import PurifierBrands, Modals, Descriptions, Features, ServiceCharges, Aquagaurd_parts,TopBrands
 from django.core.files.storage import FileSystemStorage
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 
 # Create your views here.
 
@@ -231,6 +231,32 @@ def gallery(request):
     return render(request,"gallery.html",{'data':data})
 
 def brands_detail(request):
+    if request.session['email']!="":
+        data = PurifierBrands.objects.all()
+        bd_data = []
+        c = 0
+        for i in data:
+            if c == 5:
+                break
+            bd_data.append(i)
+            c += 1
+        get_id = request.GET['id']
+        brands_data = PurifierBrands.objects.get(id=get_id)
+        model_data = Modals.objects.filter(brand_id=get_id)
+        d = 0
+        md_data = []
+        for j in model_data:
+            if d == 16:
+                break
+            md_data.append(j)
+            d += 1
+        return render(request, "brands_detail.html",{'data': data, 'bd_data': bd_data, 'brands_data': brands_data, 'md_data': md_data})
+    else:
+        return HttpResponse("Please login to access this page")
+
+
+
+def brands_detail2(request):
     data = PurifierBrands.objects.all()
     bd_data = []
     c = 0
@@ -241,16 +267,14 @@ def brands_detail(request):
         c += 1
     get_id = request.GET['id']
     brands_data = PurifierBrands.objects.get(id=get_id)
-    model_data_list = Modals.objects.filter(brand_id = get_id)
-    paginator = Paginator(model_data_list,4)  # Show 25 contacts per page#
-    is_private = request.GET.get('is_private')
-    try:
-        model_data = paginator.page(is_private)
-    except PageNotAnInteger:
-        model_data = paginator.page(1)
-    except EmptyPage:
-        model_data = paginator.page(paginator.num_pages)
-    return render(request,"brands_detail.html",{'data':data,'bd_data':bd_data,'brands_data':brands_data,'model_data':model_data})
+    model_data = Modals.objects.filter(brand_id=get_id)
+    d = 0
+    md_data = []
+    for j in model_data:
+        if d >= 16:
+          md_data.append(j)
+        d += 1
+    return render(request, "brands_detail.html",{'data': data, 'bd_data': bd_data, 'brands_data': brands_data, 'md_data': md_data})
 
 def service_details(request):
     data = PurifierBrands.objects.all()
@@ -339,6 +363,28 @@ def model_detail(request):
     return render(request,"modal_detail.html",{'data':data,'bd_data':bd_data,'m_data':m_data,'d_data':d_data,'f_data':f_data})
 
 def purifier_parts(request):
+    if request.session['email'] != "":
+        data = PurifierBrands.objects.all()
+        bd_data = []
+        c = 0
+        for i in data:
+            if c == 5:
+                break
+            bd_data.append(i)
+            c += 1
+        parts_data = Aquagaurd_parts.objects.all()
+        d = 0
+        p_data = []
+        for j in parts_data:
+            if d == 16:
+                break
+            p_data.append(j)
+            d += 1
+        return render(request, "purifier_parts.html", {'data': data, 'bd_data': bd_data, 'p_data': p_data})
+    else:
+        return HttpResponse("Please login to access this page ")
+
+def purifier_parts2(request):
     data=PurifierBrands.objects.all()
     bd_data = []
     c = 0
@@ -348,7 +394,15 @@ def purifier_parts(request):
         bd_data.append(i)
         c += 1
     parts_data = Aquagaurd_parts.objects.all()
-    return render(request,"purifier_parts.html",{'data':data,'bd_data':bd_data,'parts_data':parts_data})
+    d = 0
+    p_data = []
+    for j in parts_data:
+        if d>=16:
+            p_data.append(j)
+        d+=1
+
+    return render(request,"purifier_parts.html",{'data':data,'bd_data':bd_data,'p_data':p_data})
+
 
 def parts_detail(request):
     data= PurifierBrands.objects.all()

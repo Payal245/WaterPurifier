@@ -31,6 +31,7 @@ urlpatterns = [
    url(r'^delete_service/$', views.del_service, name="delete_service"),
    url(r'^gallery/$',views.gallery),
    url(r'^brand_detail/$', views.brands_detail,name="brands_detail"),
+   url(r'^brand_detail2/$', views.brands_detail2,name="brands_detail2"),
    url(r'^model_detail/$', views.model_detail,name="model_detail"),
    url(r'^service_detail/$',views.service_details),
    url(r'^aquagaurd_parts/$',views.aquagaurd_parts),
@@ -38,6 +39,7 @@ urlpatterns = [
    url(r'^edit_parts/$',views.edit_parts,name="edit_parts"),
    url(r'^delete_parts/$',views.delete_parts,name="delete_parts"),
    url(r'^purifier_parts/$', views.purifier_parts),
+   url(r'^purifier_parts2/$', views.purifier_parts2),
    url(r'^parts_detail/$', views.parts_detail, name="parts_detail"),
 
 

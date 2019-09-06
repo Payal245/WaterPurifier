@@ -4,12 +4,12 @@ Purifier Parts
 {% endblock %}
 {% block content %}
 
-<div style="background-color:rgba(200,200,200,0.8);height:1090px;width:100%;">
+<div style="background-color:rgba(200,200,200,0.8);height:100%;width:100%;">
 
     <div class="col-sm-12 h1 text-center" style="background-color:rgba(225,40,50,1); height:80px; margin-top:0px; color:white; margin-bottom:30px;padding-top:18px;"><h1>Purifier Parts</h1></div>
     <div class="container" >
     <div class="row">
-        {% for i in parts_data %}
+        {% for i in p_data %}
         <div class="col-sm-6 col-md-3">
             <div class="thumbnail" >
                 <img src="../media/{{ i.image }}" alt="/" style="height:150px; width:200px; ">
@@ -25,4 +25,11 @@ Purifier Parts
     </div>
 </div>
 </div>
+<nav aria-label="...">
+  <ul class="pager">
+    <li><a href="/purifier_parts/">Previous</a></li>
+    <li><a href="/purifier_parts2/">Next</a></li>
+  </ul>
+</nav>
+
 {% endblock %}

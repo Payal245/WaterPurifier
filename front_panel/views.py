@@ -60,7 +60,7 @@ def login(request):
             if data.email == "pg7298441495@gmail.com":
                 return redirect("/admin_index/")
             else:
-                return HttpResponse("Welcome User")
+                return redirect("/")
     return render(request,"index.html")
 
 
@@ -116,24 +116,30 @@ def forgot_password(request):
     return render(request,"forgottenPasword.html")
 
 def admin_index(request):
-    data= RoleDetails.objects.all()
-    b_data= PurifierBrands.objects.all()
-    t_data = ServiceCharges.objects.all()
-    m_data = Modals.objects.all()
-    p_data = Aquagaurd_parts.objects.all()
-    user_count = 0
-    brand_data = 0
-    model_data = 0
-    service_data = 0
-    for i in data:
-        user_count += 1
-    for j in b_data:
-        brand_data += 1
-    for k in m_data:
-        model_data += 1
-    for l in t_data:
-        service_data += 1
-    return render(request,"admin_index.html",{'data': data,'m_data':m_data, 'p_data':p_data,'b_data':b_data,'user_count': user_count,'brand_data':brand_data,'model_data':model_data,'service_data':service_data})
+    if request.session['email']!="":
+        data = RoleDetails.objects.all()
+        b_data = PurifierBrands.objects.all()
+        t_data = ServiceCharges.objects.all()
+        m_data = Modals.objects.all()
+        p_data = Aquagaurd_parts.objects.all()
+        user_count = 0
+        brand_data = 0
+        model_data = 0
+        service_data = 0
+        for i in data:
+            user_count += 1
+        for j in b_data:
+            brand_data += 1
+        for k in m_data:
+            model_data += 1
+        for l in t_data:
+            service_data += 1
+        return render(request, "admin_index.html",
+                      {'data': data, 'm_data': m_data, 'p_data': p_data, 'b_data': b_data, 'user_count': user_count,
+                       'brand_data': brand_data, 'model_data': model_data, 'service_data': service_data})
+    else:
+        return HttpResponse("Please login firstly")
+
 
 def logout(request):
     request.session['email'] = ""
@@ -202,26 +208,52 @@ def about(request):
     return render(request,"about.html",{'data':data,'bd_data':bd_data})
 
 def modal_search(request):
-    if request.method == "POST":
-        get_name = request.POST['search']
-        b_data = PurifierBrands.objects.filter(brands=get_name)
-        model_data = Modals.objects.filter(name=get_name)
-        if len(b_data)!=0:
-           for i in b_data:
-               get_id = i.id
-           data = PurifierBrands.objects.all()
-           brands_data = PurifierBrands.objects.get(id=get_id)
-           model_data = Modals.objects.filter(brand_id=get_id)
-           return render(request, "brands_detail.html",{'data': data, 'brands_data': brands_data, 'model_data': model_data})
-        elif len(model_data)!=0:
-            for i in model_data:
-                get_id = i.id
-            data = PurifierBrands.objects.all()
-            m_data = Modals.objects.get(id=get_id)
-            d_data = Descriptions.objects.filter(modal_id=get_id)
-            f_data = Features.objects.filter(modal_id=get_id)
-            return render(request, "modal_detail.html",{'data': data, 'm_data': m_data, 'd_data': d_data, 'f_data': f_data})
-        else:
-            return HttpResponse("OOPs! Data not found")
+    if request.session['email']!="":
+        if request.method == "POST":
+            get_name = request.POST['search']
+            b_data = PurifierBrands.objects.filter(brands=get_name)
+            model_data = Modals.objects.filter(name=get_name)
+            if len(b_data) != 0:
+                for i in b_data:
+                    get_id = i.id
+                data = PurifierBrands.objects.all()
+                bd_data = []
+                c = 0
+                for i in data:
+                    if c == 5:
+                        break
+                    bd_data.append(i)
+                    c += 1
+                brands_data = PurifierBrands.objects.get(id=get_id)
+                model_data = Modals.objects.filter(brand_id=get_id)
+                d = 0
+                md_data = []
+                for j in model_data:
+                    if d == 4:
+                        break
+                    md_data.append(j)
+                    d += 1
+                return render(request, "brands_detail.html",
+                              {'data': data, 'brands_data': brands_data, 'md_data': md_data, 'bd_data': bd_data})
+            elif len(model_data) != 0:
+                for i in model_data:
+                    get_id = i.id
+                data = PurifierBrands.objects.all()
+                bd_data = []
+                c = 0
+                for i in data:
+                    if c == 5:
+                        break
+                    bd_data.append(i)
+                    c += 1
+                m_data = Modals.objects.get(id=get_id)
+                d_data = Descriptions.objects.filter(modal_id=get_id)
+                f_data = Features.objects.filter(modal_id=get_id)
+                return render(request, "modal_detail.html",
+                              {'data': data, 'm_data': m_data, 'd_data': d_data, 'bd_data': bd_data, 'f_data': f_data})
+            else:
+                return HttpResponse("OOPs! Data not found")
+    else:
+        return HttpResponse("Please login firstly")
 
 
