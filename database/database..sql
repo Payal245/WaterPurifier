@@ -168,13 +168,16 @@ CREATE TABLE IF NOT EXISTS `backend_panel_aquagaurd_parts` (
   UNIQUE KEY `name` (`name`),
   KEY `backend_panel_aquaga_company_id_0cc781d6_fk_backend_p` (`company_id`),
   CONSTRAINT `backend_panel_aquaga_company_id_0cc781d6_fk_backend_p` FOREIGN KEY (`company_id`) REFERENCES `backend_panel_purifierbrands` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
--- Dumping data for table waterpurifier_db.backend_panel_aquagaurd_parts: ~2 rows (approximately)
+-- Dumping data for table waterpurifier_db.backend_panel_aquagaurd_parts: ~5 rows (approximately)
 /*!40000 ALTER TABLE `backend_panel_aquagaurd_parts` DISABLE KEYS */;
 INSERT INTO `backend_panel_aquagaurd_parts` (`id`, `name`, `quality`, `image`, `price`, `Desc`, `company_id`) VALUES
 	(1, 'pipe', 'low', 'alchol_homo.PNG', 'Rs. 300', 'good', 4),
-	(2, 'filter', 'low', 'Water Purifier-en.jpg', 'rs 100', 'good', 5);
+	(2, 'filter', 'low', 'Water Purifier-en.jpg', 'rs 100', 'good', 5),
+	(3, 'light wight filter', 'high', 'website-page-16.png', 'rs 100', 'good', 5),
+	(4, 'tank', 'low', 'drinkingwater-purification.jpg', 'Rs. 250', 'good', 7),
+	(6, 'pipe1', 'low', 'real alzhmier homo.jpg', 'rs 100', 'good', 5);
 /*!40000 ALTER TABLE `backend_panel_aquagaurd_parts` ENABLE KEYS */;
 
 -- Dumping structure for table waterpurifier_db.backend_panel_descriptions
@@ -328,7 +331,7 @@ CREATE TABLE IF NOT EXISTS `backend_panel_features` (
   CONSTRAINT `backend_panel_featur_modal_id_642e230e_fk_backend_p` FOREIGN KEY (`modal_id`) REFERENCES `backend_panel_modals` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=215 DEFAULT CHARSET=latin1;
 
--- Dumping data for table waterpurifier_db.backend_panel_features: ~214 rows (approximately)
+-- Dumping data for table waterpurifier_db.backend_panel_features: ~155 rows (approximately)
 /*!40000 ALTER TABLE `backend_panel_features` DISABLE KEYS */;
 INSERT INTO `backend_panel_features` (`id`, `features`, `modal_id`) VALUES
 	(1, '1.WQA certified patented side stream RO membrane', 5),
@@ -558,7 +561,7 @@ CREATE TABLE IF NOT EXISTS `backend_panel_modals` (
   UNIQUE KEY `name` (`name`),
   KEY `backend_panel_modals_brand_id_73c124fd_fk_backend_p` (`brand_id`),
   CONSTRAINT `backend_panel_modals_brand_id_73c124fd_fk_backend_p` FOREIGN KEY (`brand_id`) REFERENCES `backend_panel_purifierbrands` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table waterpurifier_db.backend_panel_modals: ~30 rows (approximately)
 /*!40000 ALTER TABLE `backend_panel_modals` DISABLE KEYS */;
@@ -747,13 +750,16 @@ CREATE TABLE IF NOT EXISTS `django_session` (
   KEY `django_session_expire_date_a5c62663` (`expire_date`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table waterpurifier_db.django_session: ~4 rows (approximately)
+-- Dumping data for table waterpurifier_db.django_session: ~7 rows (approximately)
 /*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 	('gj2kl9u85141vzm31mvdncd8ythxtax8', 'MWM5NDA2OWNhZGQ2NjMzYjIyY2Y1M2RhMDM0MWRjYTQ4ZTQ3MjljZjp7ImVtYWlsIjoicGc3Mjk4NDQxNDk1QGdtYWlsLmNvbSIsIm5hbWUiOiJwcmluY2UifQ==', '2019-08-08 04:57:35'),
 	('hoveq9ctzhxhvk2vnh968nqntgvtxnhv', 'MWM5NDA2OWNhZGQ2NjMzYjIyY2Y1M2RhMDM0MWRjYTQ4ZTQ3MjljZjp7ImVtYWlsIjoicGc3Mjk4NDQxNDk1QGdtYWlsLmNvbSIsIm5hbWUiOiJwcmluY2UifQ==', '2019-08-07 18:40:10'),
 	('ihfiz7giyznen7odal3wwce8hrzpjyx4', 'MWM5NDA2OWNhZGQ2NjMzYjIyY2Y1M2RhMDM0MWRjYTQ4ZTQ3MjljZjp7ImVtYWlsIjoicGc3Mjk4NDQxNDk1QGdtYWlsLmNvbSIsIm5hbWUiOiJwcmluY2UifQ==', '2019-08-07 18:31:44'),
-	('mnrpt3mr0ovvnquf0xw6iosem84e8z4e', 'ODlkMTkyZWM4Nzk2OGJhNWMxYmQyMTkyMmRlNWE2ZmJlNzEyZjJlYzp7ImVtYWlsIjoicGc3Mjk4NDQxNDk1QGdtYWlsLmNvbSIsIm5hbWUiOiJLdW5hbCJ9', '2019-09-11 13:44:05');
+	('lul2kyhe88lk7u2v816q32dpxol27kbb', 'ODlkMTkyZWM4Nzk2OGJhNWMxYmQyMTkyMmRlNWE2ZmJlNzEyZjJlYzp7ImVtYWlsIjoicGc3Mjk4NDQxNDk1QGdtYWlsLmNvbSIsIm5hbWUiOiJLdW5hbCJ9', '2019-09-20 16:37:26'),
+	('mnrpt3mr0ovvnquf0xw6iosem84e8z4e', 'ODlkMTkyZWM4Nzk2OGJhNWMxYmQyMTkyMmRlNWE2ZmJlNzEyZjJlYzp7ImVtYWlsIjoicGc3Mjk4NDQxNDk1QGdtYWlsLmNvbSIsIm5hbWUiOiJLdW5hbCJ9', '2019-09-14 13:25:37'),
+	('wjeai2rr1u0465dj29mqtvos12zlhnfi', 'ZmNmZTMxYzY0N2YzYzNkMjU0NGRkNTVhYTY4OWYzYTQxNTNmOGFkZDp7ImVtYWlsIjoicmt1bmFsOTgwQGdtYWlsLmNvbSIsIm5hbWUiOiJwcmluY2UiLCJpbWFnZSI6ImFsY2hvbF9heXVyLmpwZyJ9', '2019-09-15 17:05:12'),
+	('zyxj542n70n4ebis3p9ufw9454zantox', 'ZDk4MWYzMjliMzMxYjc3YzQ2Yzc0YTY4MTE4MGJhZThjM2Q3MTliMDp7ImVtYWlsIjoicGc3Mjk4NDQxNDk1QGdtYWlsLmNvbSIsIm5hbWUiOiJSYWphbmkgS2FudCBNdWtoZXJqZWUiLCJpbWFnZSI6ImFsbGVyZ3lfYXl1ZXZlZC5wbmcifQ==', '2019-09-15 05:19:28');
 /*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
 
 -- Dumping structure for table waterpurifier_db.front_panel_roledetails
@@ -772,10 +778,11 @@ CREATE TABLE IF NOT EXISTS `front_panel_roledetails` (
   PRIMARY KEY (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table waterpurifier_db.front_panel_roledetails: ~1 rows (approximately)
+-- Dumping data for table waterpurifier_db.front_panel_roledetails: ~2 rows (approximately)
 /*!40000 ALTER TABLE `front_panel_roledetails` DISABLE KEYS */;
 INSERT INTO `front_panel_roledetails` (`name`, `email`, `password`, `mobile`, `image`, `gender`, `address`, `otp`, `active`, `verify_link`, `auth_token`) VALUES
-	('Kunal', 'pg7298441495@gmail.com', 'pbkdf2_sha256$100000$TUDAdVSeqavh$hyPVaxd2NxcUOSqHOBGQywauqAf72g2SgSgjBue8sKI=', '9888074267', 'abc.PNG', '', 'chandigarh', '', '1', '', '');
+	('Kunal', 'pg7298441495@gmail.com', 'pbkdf2_sha256$100000$TUDAdVSeqavh$hyPVaxd2NxcUOSqHOBGQywauqAf72g2SgSgjBue8sKI=', '7732342233', 'alchol_ayur.jpg', '', 'Amritsar', '', '1', '', ''),
+	('prince', 'rkunal980@gmail.com', 'pbkdf2_sha256$100000$k63gam545T4b$Xm6z9IG19q/xSH3vXqrTYxANiwMZC3X2fhViW+oCngs=', '45657425345', '', '', 'Amritsar', '', '1', '', '');
 /*!40000 ALTER TABLE `front_panel_roledetails` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
