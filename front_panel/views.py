@@ -205,7 +205,8 @@ def about(request):
             break
         bd_data.append(i)
         c += 1
-    return render(request,"about.html",{'data':data,'bd_data':bd_data})
+    sr_data=ServiceCharges.objects.all();
+    return render(request,"about.html",{'data':data,'bd_data':bd_data,'sr_data':sr_data})
 
 def modal_search(request):
     if request.session['email']!="":

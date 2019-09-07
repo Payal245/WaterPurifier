@@ -3,8 +3,47 @@
 About
 {% endblock %}
 {% block content %}
-<div style="background-color:rgba(200,200,200,0.8);height:100%;width:100%;">
-    <div class="col-sm-12 h1 text-center" style="background-color:rgba(225,40,50,1); height:80px; margin-top:0px; color:white; margin-bottom:30px;padding-top:18px;"><h1>ABOUT US</h1></div>
-    <h1>hello</h1>
+<div class="col-sm-12 h1 text-center" style="background-color:rgba(225,40,50,1); height:80px; margin-top:0px; color:white; margin-bottom:30px;padding-top:18px;"><h1>ABOUT US</h1></div>
+<div style="background-color:white; height:940px;">
+    <div style="padding-left:30px;padding-right:40px;">
+        <p style="color:black;font-size:16px;">N.A Alkaline Water Purifier Is One Of The Trusted & Independent Water Purifier Service Provider In Chandigarh. At N.A Alkaline, We Offer A Complete Solution Such As Water Purifier Installation, Water Purifier Repair, Maintenance And Any Service For Domestic, Commercial & Industrial Water Purifier. We Deal In All Brands Of Water Purifier At A Relatively Low Price</p>
+    </div>
+    <div style="padding-left:30px;padding-right:40px;padding-top:20px;" >
+        <p style="color:black;font-size:16px;">At N.A Alkaline, we understand that pure water is the only weapon to fight against thousands of diseases out in the real world. With a wealth of experiences accumulated, we trade and supply water treatment products. While we take cares of all your RO(Reverse Osmosis) System, we also ensure that the services provided by us must also satisfy the customer. Our goal is to be the best at what we are providing i.e. a high quality product at a fair price.
+    </div>
+
+    <div style="padding-left:20px;padding-top:30px;padding-bottom:30px;height:350px;">
+        <div class="col-md-6 w3_footer_grid" style="padding-left:100px;padding-right:80px;">
+            <h2 style="color:black;border-bottom:1px solid #d5d5d5;text-align:center;">Contact Us</h2>
+            <a href="#"><i class="fa fa-map-marker" style="padding-top:20px;padding-bottom:10px;padding-left:50px;"></i>&nbsp;Location :</a>
+            <p style="color:black;padding-left:50px;">Unit No. 221-222 Tower B-4 Spaze I-Tech Park Sector 49, Gurgaon, Haryana 122002</p>
+            <a href="#"><i class="fa fa-phone"  style="padding-bottom:10px;padding-left:50px;"></i>&nbsp;Phone Number :</a>
+            <p style="color:black;padding-left:50px;">+9888074267,&nbsp;  +9988044267</p>
+            <a href="#"><i class="fa fa-envelope"  style="padding-bottom:10px;padding-left:50px;"></i>&nbsp;Email :</a>
+            <p style="color:black;padding-left:50px;">123@gmail.com</p>
+        </div>
+
+        <div class="col-md-6 w3_footer_grid" style="padding-left:60px;padding-right:110px;">
+            <h2 style="color:black;border-bottom:1px solid #d5d5d5;text-align:center;">Services</h2>
+            {% if sr_data %}
+            <div style="padding-top:20px;">
+            {% for i in sr_data %}
+            <p style="color:black;padding-left:178px;font-size:18px;">{{ i.service }}</p>
+            {% endfor %}
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+    <div style="padding-top:20px;padding-right:40px;padding-bottom:15px;"><h2 style="padding-left:80px;padding-bottom:10px;">Get The Best Water Purifier Repair and Service in Chandigarh</h2>
+        <p style="padding-left:30px;font-size:15px;color:black;padding-bottom:20px;">If you want to purchase the water purifier machine and water softener filter then visit the nearest NeelAkash Enterprise and install both water purifier along with the water softener filter. There are the various brands of water purifier filter is available but you have to choose best water purifier for the purest form of water. N.A Alkaline provides you best water purifier in Chandigarh for home use as well as industrial use. Because of the best water purifiers contains high-quality spare parts and gives you maximum purest form of water. </p>
+    </div>
+    <div style="background:#0a408a; height:150px;text-align:center; width:100%;padding-bottom:150px;">
+        <div style="padding-top: 30px;"><span style="font-size: 23px;width:50%;text-align: right;color: rgb(255, 255, 255);line-height: 35px;padding-top:20px;">We provide all brands water purifiers repair service, installation and maintenance work to</span><p style="font-size: 30px;color: rgb(255, 255, 255);">Chandigarh,Panchkula,Mohali,Kharar,Zirakpur.</p>
+        </div>
+    </div>
 </div>
+</div>
+
+
 {% endblock %}

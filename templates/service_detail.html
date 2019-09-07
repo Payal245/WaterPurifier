@@ -3,11 +3,11 @@
 Service Details
 {% endblock %}
 {% block content %}
-<div style="background:url(assets\images\services_image.jpg);height:100%;">
+<div style="background:url(/assets/images/services_image.jpg);height:900px;">
     {% if ser_data %}
     {% for i in ser_data %}
-    <h2>{{ i.service }}</h2>
-    <p>{{ i.price }}</p>
+    <label style="font-size:70px;font-weight:bold; padding-left:30px;padding-top:-40px;">.</label><span style="font-size:70px;font-weight:bold;">{{ i.service }}</span>
+    <p style="font-size:50px;padding-left:60px;padding-bottom:50px;">{{ i.price }}</p>
     {% endfor%}
     {% endif %}
 </div>
