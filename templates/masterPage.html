@@ -160,8 +160,8 @@
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Water Purifier <b class="caret"></b></a>
 						<ul class="dropdown-menu multi-column columns-3">
-							<div class="row">
-								<div class="col-sm-3">
+							<div class="row" >
+								<div class="col-sm-2">
 									<ul class="multi-column-dropdown">
 										<h6>Brands</h6>
 										{% if data %}
@@ -171,13 +171,23 @@
 										{% endif %}
 									</ul>
 								</div>
-								<div class="col-sm-4">
+								<div class="col-sm-3">
 									<div class="w3ls_products_pos">
-										<h4>30%<i>Off/-</i></h4>
-										<img src="/assets/images/1.jpg" alt=" " class="img-responsive" />
+										<h4 style="padding-left:230px;">30%<i>Off/-</i></h4>
+										<img style="height:180px;" src="/assets/images/kent_model.jpg" alt=" " class="img-responsive" />
 									</div>
 								</div>
-								<div class="clearfix"></div>
+								<div class="col-sm-4" style="padding-top:60px;">
+									<div class="w3ls_products_pos">
+										<img style="height:180px;" src="/assets/images/Blue_model.jpg" alt=" " class="img-responsive" />
+									</div>
+								</div>
+								<div class="col-sm-5" style="padding-top:60px;margin-right:-200px;">
+									<div class="w3ls_products_pos">
+										<img style="height:180px;" src="/assets/images/ao-smith_model.png" alt=" " class="img-responsive" />
+									</div>
+								</div>
+
 							</div>
 						</ul>
 					</li>
@@ -191,12 +201,12 @@
 {% block content %}
 {% endblock %}
 <!-- //navigation -->
-<div class="footer">
-	<div class="container">
+<div class="footer" style="background-color:black;" >
+	<div class="container" >
 		<div class="w3_footer_grids">
 			<div class="col-md-3 w3_footer_grid">
-				<h3>Contact</h3>
-				<p>Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
+				<h3 style="color:white;">Contact</h3>
+				<p>Call for the better type of services for water purifiers than Anywhere</p>
 				<ul class="address">
 					<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>1234k Avenue, 4th block, <span>New York City.</span></li>
 					<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">info@example.com</a></li>
@@ -204,17 +214,15 @@
 				</ul>
 			</div>
 			<div class="col-md-3 w3_footer_grid">
-				<h3>Information</h3>
+				<h3 style="color:white;">Information</h3>
 				<ul class="info">
 					<li><a href="/about/">About Us</a></li>
-					<li><a href="mail.html">Contact Us</a></li>
-					<li><a href="codes.html">Short Codes</a></li>
-					<li><a href="faq.html">FAQ's</a></li>
-					<li><a href="products.html">Special Products</a></li>
+
+
 				</ul>
 			</div>
 			<div class="col-md-3 w3_footer_grid">
-				<h3>Brands</h3>
+				<h3 style="color:white;">Brands</h3>
 				<ul class="info">
 					{% if bd_data %}
 					    {% for i in bd_data %}
@@ -224,20 +232,13 @@
 				</ul>
 			</div>
 			<div class="col-md-3 w3_footer_grid">
-				<h3>Profile</h3>
+				<h3 style="color:white;">Profile</h3>
+
 				<ul class="info">
 					<li><a href="/home/">Home</a></li>
-					<li><a href="products.html">Today's Deals</a></li>
+					<li><p>We provide services in the Chandigarh,Panchkula,Mohali,Kharar,Zirakpur</p></li>
+
 				</ul>
-				<h4>Follow Us</h4>
-				<div class="agileits_social_button">
-					<ul>
-						<li><a href="#" class="facebook"> </a></li>
-						<li><a href="#" class="twitter"> </a></li>
-						<li><a href="#" class="google"> </a></li>
-						<li><a href="#" class="pinterest"> </a></li>
-					</ul>
-				</div>
 			</div>
 			<div class="clearfix"> </div>
 		</div>
